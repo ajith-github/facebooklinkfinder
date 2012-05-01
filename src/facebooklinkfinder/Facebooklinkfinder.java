@@ -46,11 +46,18 @@ public class Facebooklinkfinder {
 //        for (Element link : imports) {
 //            print(" * %s <%s> (%s)", link.tagName(),link.attr("abs:href"), link.attr("rel"));
 //        }
-
+         Document doc1 = Jsoup.parse(url);
         print("\nLinks: (%d)", links.size());
         for (Element link : links) {
-           
-            print(" * a: <%s>  (%s)", link.attr("abs:href"), trim(link.text(), 35));
+            String urltext = doc.body().text();
+            String linkhref = link.attr("href");
+            String linktext = link.text();
+            
+            System.out.println("urltext = " + urltext);
+            System.out.println("linkhref = " + linkhref);
+            System.out.println("linktext = " + linktext);
+            print("result =  * a: <%s>  (%s)", link.attr("abs:href"), trim(link.text(), 35));
+            System.out.println();
         }
     }
 
